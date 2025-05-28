@@ -1,0 +1,681 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Winky+Sans:ital,wght@0,300..900;1,300..900&display=swap');
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Winky Sans", sans-serif;
+    color: white;
+}
+
+body{
+    min-height: 100%;
+}
+
+.root-component{
+    height: 100vh;
+}
+
+body::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+body::-webkit-scrollbar-thumb {
+    background-color: darkgrey;
+    border-radius: 7px;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+main{
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(40, 40, 61);
+}
+
+header{
+    width: 100%;
+    height: 90px;
+    border-bottom: 1px solid white;
+}
+
+nav{
+    width: 100%;
+    height: 100%;
+    background-color: rgb(40, 40, 61);
+}
+
+section{
+    display: flex;
+    min-height: 100vh; 
+}
+
+.start-page{
+    width: 100%;
+}
+
+.start-forms{
+    width: 30%;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.begin-screen{
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.start-logo{
+    width: 50%;
+    height: 90%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-img{
+    max-width: 100%;
+    max-height: 100%;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+} 
+
+.mini-logo{
+    width: 70%;
+    height: 25%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.logo-mini{
+    height: 100%;
+    width: 211px;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+input{
+    color: black;
+    padding: 10px;
+    width: 80%;
+    font-size: 14px;
+}
+
+input:focus, textarea:focus{
+    outline: none;
+}
+
+button{
+    padding: 10px;
+    color: black;
+    border: 2px solid black;
+    cursor: pointer;
+    background-color: transparent;
+    transition: all 0.5s;
+}
+
+button:hover{
+    background-color: rgb(57, 57, 194);
+    transform: translateY(-5px);
+    color: white;
+}
+
+.auth-btn{
+    width: 40%;
+}
+
+.google-auth-btn{
+    margin-top: 50px;
+    width: 70%;
+}
+
+.start-title{
+    color: black;
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.home-page{
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    width: 100%;
+}
+
+.create-page{
+    display: flex;
+    gap: 40px;
+}
+
+.feed{
+    width: 40%;
+    border-left: 1px solid white;
+    border-right: 1px solid white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.filter-feed{
+    width: 100%;
+    height: 60px;
+    border-bottom: 1px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+}
+
+.suggestions{
+    margin-top: 60px;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    height: 100vh;
+}
+
+.sidebar{
+    margin-top: 60px;
+    width: 20%;
+    flex-direction: column;
+    align-items: center;
+}
+
+.latest, .most-followed{
+    height: 40%;
+    width: 100%;
+    border: 1px solid white;
+}
+
+.users{
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    max-height: 100%;
+    overflow: hidden;
+}
+
+h2{
+    padding: 3px;
+    text-decoration: underline;
+}
+
+.user-card{
+    width: 100%;
+    height: 29.6%;
+    border-bottom: 1px solid white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px;
+}
+
+.user-info{
+    height: 100%;
+    max-height: 100%;
+    width: 50%;
+    max-width: 50%;
+    min-width: 50%;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.sug-name{
+    overflow: hidden;
+    width: 100%;
+}
+
+.profile-img{
+    height: inherit;
+    max-height: inherit;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.profile-img-suggestion{
+    height: 84px;
+    width: 84px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.profile-img-list{
+    height: 51px;
+    width: 51px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.follow-btn, .post-btn{
+    color: white;
+    border: 2px solid white;
+}
+
+.active{
+    text-decoration: underline;
+}
+
+span{
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.side-list{
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    gap: 30px;
+}
+
+.red{
+    color: red;
+}
+
+.side-item{
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    font-size: 22px;
+    gap: 10px;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.side-item:hover{
+    background-color: rgb(75, 75, 114);
+}
+
+.side-text{
+    font-size: 22px;
+}
+
+.feed-post{
+    width: 100%;
+    min-width: 100%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border-bottom: 1px solid white;
+}
+
+.post-info, .post-actions{
+    display: flex;
+    gap: 40px;
+}
+
+.post-actions{
+    display: flex;
+    align-items: center;
+}
+
+.feed-user{
+    color: lightgray;
+    cursor: pointer;
+}
+
+.feed-content{
+    font-weight: 400;
+}
+
+.feed-icons{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.ytvid{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.vid-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+  
+.video{
+    max-width: 100%;
+    max-height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.img-container{
+    width: 100%;
+    min-height: 60px;
+    margin: 0;
+    padding: 0;
+  }
+
+  .pic-container{
+    width: 50%;
+    height: 100%;
+  }
+
+  .post-content{
+    max-height: 600px;
+  }
+  
+.slider-wrapper{
+    position: relative;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.slider{
+    display: flex;
+    aspect-ratio: 16/9;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    box-shadow: o 1.5rem 3 rem -0,75rem hsla(0, 0%, 0%, 0.25);
+}
+
+.slider::-webkit-scrollbar{
+    display: none;
+}
+  
+.slider::-webkit-scrollbar-thumb{
+    display: none;
+}
+  
+.slider img{
+    flex: 1 0 100%;
+    scroll-snap-align: start;
+    object-fit: cover;
+}
+  
+.slider-nav{
+    display: flex;
+    column-gap: 1rem;
+    position: absolute;
+    bottom: 1.25rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+  
+.slider-nav a{
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background-color: #fff;
+    opacity: 0.75;
+    transition: opacity ease 250ms;
+}
+  
+.slider-nav a:hover{
+    opacity: 1;
+}
+
+.post-btn{
+    width: 90%;
+    font-size: 16px;
+}
+
+textarea{
+    width: 90%;
+    resize: none;
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+    padding: 10px;
+}
+
+.guest-login{
+    color: black;
+    text-decoration: underline;
+}
+
+.post-op{
+    cursor: pointer;
+    font-size: 22px;
+}
+
+.post-input{
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+}
+
+.comment-form{
+    margin-top: 16px;
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid white;
+}
+
+.comment-title{
+    font-size: 28px;
+    padding: 12px;
+    text-decoration: underline;
+}
+
+.search-input{
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+    margin: 40px;
+}
+
+.user-option{
+    width: 100%;
+    height: 40px;
+    border-bottom: 1px solid white;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.user-search-info{
+    height: 100%;
+    max-height: 100%;
+    width: 50%;
+    max-width: 50%;
+    display: flex;
+    align-items: center;
+}
+
+.user-search-card{
+    width: 100%;
+    height: 60px;
+    border-bottom: 1px solid white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px;
+}
+
+.notification-card{
+    width: 100%;
+    height: 60px;
+    border-bottom: 1px solid white;
+    display: flex;
+    align-items: center;
+    padding: 6px;
+}
+
+.user-profile-info{
+    width: 100%;
+    height: 40%;
+    display: flex;
+    align-content: space-between;
+    flex-direction: row;
+    border-bottom: 1px solid white;
+    padding: 18px;
+    margin-bottom: 30px;
+}
+
+.profile-card-info{
+    width: 70%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 12px;
+    gap: 14px;
+}
+
+.profile-card-img{
+    width: 135px;
+    height: 135px;
+    padding: 12px;
+}
+
+.profile-card-image{
+    height: 100%;
+    max-height: 100%;
+    width: 100%;
+    max-width: 100%;
+    border-radius: 50%;
+}
+
+.followers{
+    display: flex;
+    gap: 20px;
+}
+
+.follow-profile-btn{
+    width: 90%;
+    font-size: 22px;
+    color: white;
+    border: 2px solid white;
+}
+
+.follow-label{
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.follow-name{
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.link-preview{
+    cursor: pointer;
+    background-color: rgb(60, 60, 88); 
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    max-width: 48rem;
+    gap: 10px;
+  }
+  
+  .link-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .img-preview{
+    max-width: 100%;
+  }
+
+  a{
+    display: flex;
+    gap: 20px;
+    font-size: 22px;
+    text-decoration: none;
+  }
+
+  .error{
+    color: black;
+  }
+
+  .hidden{
+    display: none;
+  }
+
+  .vid-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .video{
+    max-width: 100%;
+    max-height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .ytvid{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .link-post{
+    color: blue;
+    text-decoration: underline;
+  }
+
+  .sidebar-pic{
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+  }
+
+  @media (max-width: 1500px){
+    .suggestions{
+        display: none;
+    }
+
+    .side-text{
+        display: none;
+    }
+
+    .sidebar{
+        width: 40px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .feed{
+        width: 80%;
+    }
+  }
+
+  @media (max-width: 1100px){
+    .begin-screen{
+        display: none;
+    }
+    .start-forms{
+        width: 100%;
+    }
+  }
