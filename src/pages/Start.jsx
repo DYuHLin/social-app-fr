@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 
 const Start = () => {
     const [forms, setForms,] = useState(true)
-    const {setUser} = useContext(AppContext)
+    const {setUser, user} = useContext(AppContext)
     const navigate = useNavigate()
 
     const googleLogin = (e) => {
@@ -40,6 +40,7 @@ const Start = () => {
                         <button className='google-auth-btn'>Continue with Google</button>
                     </form>  
                     <span className='guest-login' onClick={guestLogin}>Guest Login</span>
+                <button onclick={()=> console.log(user)}>Show</button>
             </div>
             <div className='begin-screen'>
                 <div className='start-logo'>
