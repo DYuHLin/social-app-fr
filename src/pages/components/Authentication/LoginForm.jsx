@@ -20,7 +20,7 @@ const LoginForm = () => {
             } else if(res.data == 'password'){
                 setError('This password is incorrect')
             } else {
-                setUser(res.data.user[0])
+                setUser(res.data)
                 navigate('/')
             }
 

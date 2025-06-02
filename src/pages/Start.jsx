@@ -21,7 +21,7 @@ const Start = () => {
         const login = {username: import.meta.env.VITE_GUESTNAME, password: import.meta.env.VITE_GUESTNAME}
             try{
                 const res = await axios.post(`${import.meta.env.VITE_URI}/auth/login`, login, {headers: {'Content-Type': 'application/json'}, withCredentials: true})
-                setUser(res.data.user[0])
+                setUser(res.data[0])
                 navigate('/')
             } catch(err){
                 console.log(err)
