@@ -11,7 +11,7 @@ const LikedComments = ({loading}) => {
     const likePost = (comment) => {
         try{
             const like = {post: null, comment: comment, liker: user.id,}
-            axios.post(`${import.meta.env.VITE_URI}/likes/likepost`, like, {headers: {'Content-Type': 'application/json'}, withCredentials: true})
+            axios.post(`${import.meta.env.VITE_URI}/likes/likecomment`, like, {headers: {'Content-Type': 'application/json'}, withCredentials: true})
         } catch(err){
             console.log(err)
         }

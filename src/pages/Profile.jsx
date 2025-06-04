@@ -14,6 +14,7 @@ const Profile = () => {
     const [currentUser, setCurrentUser] = useState([])
     const [view, setView] = useState(false)
     const [loading, setLoading] = useState(true)
+    const [reloading, setReloading] = useState(false)
 
     useEffect(() => {
         axios.get(`${import.meta.env.VITE_URI}/auth/${id}/user`, {headers: {'Content-Type': 'application/json'}})
@@ -30,16 +31,18 @@ const Profile = () => {
         axios.get(`${import.meta.env.VITE_URI}/follow/${user.id}/following`, {headers: {'Content-Type': 'application/json'}})
           .then((res) => {
             setFollowing(res.data)
+            setReloading(false)
           })
           .catch((err) => {
             console.log(err)
           })
-    },[user.id])
+    },[reloading, user.id])
 
     const follow = (other) => {
         try{
             const fllw = {follower: user.id, following: other}
             axios.post(`${import.meta.env.VITE_URI}/follow/create`, fllw, {headers: {'Content-Type': 'application/json'}, withCredentials: true})
+            setReloading(true)
         } catch(err){
             console.log(err)
         }
@@ -63,7 +66,7 @@ const Profile = () => {
                         <p className='follow-label' onClick={() => navigate(`followers`)}> {currentUser[0].following.length} Following</p>
                     </div>
                     {currentUser[0].id != user.id ?<button className='follow-profile-btn' onClick={() => follow(currentUser[0].id)}>{
-                            following.some((fl) => fl.user_id == currentUser[0].id) ? 'Following' : 'Follow'
+                            following.some((fl) => fl.user_id == currentUser[0].id)  ? 'Following' : 'Follow'
                         }</button> : ''}
                     {currentUser[0].id == user.id && currentUser[0].google_id ? '' :
                     currentUser[0].id == user.id ?<button className='follow-profile-btn' onClick={() => navigate('edit')}>Edit</button> : ''}

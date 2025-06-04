@@ -31,7 +31,7 @@ const UserPosts = ({id}) => {
           .catch((err) => {
             console.log(err)
           })
-    },[id, reloading])
+    },[reloading, id])
 
     return (
         <>

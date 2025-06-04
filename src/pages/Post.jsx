@@ -12,6 +12,7 @@ const Post = () => {
     const navigate = useNavigate()
     const [post, setPost] = useState([])
     const [reloading, setReloading] = useState(false)
+    const [reloading2, setReloading2] = useState(false)
 
     const likePost = (post) => {
         try{
@@ -32,7 +33,7 @@ const Post = () => {
           .catch((err) => {
             console.log(err)
           })
-    },[id, reloading])
+    },[reloading, id])
 
     return (
         <section className='home-page'>
@@ -78,8 +79,8 @@ const Post = () => {
                             post[0].likes.some((lke) => lke.liker == user.id) ? `red` : ''}`} />{post[0].likes.length}</p>
                         </div>
                     </div>}
-            <CommentWriter postId = {id} commentId={null}/>
-            <Comments postId = {id} commentId={null}/>
+            <CommentWriter postId = {id} commentId={null} reloading2={reloading2} setReloading2={setReloading2}/>
+            <Comments postId = {id} commentId={null} reloading2={reloading2} setReloading2={setReloading2}/>
             </div>
         </section>
     );

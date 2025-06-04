@@ -3,7 +3,7 @@ import AppContext from '../../../context/AppContext';
 import axios from 'axios';
 import PostImg from '../Misc/PostImg';
 
-const CommentWriter = ({postId, commentId}) => {
+const CommentWriter = ({postId, commentId ,setReloading2}) => {
     const {user} = useContext(AppContext)
     const [text, setText] = useState('')
     const [video, setVideo] = useState('')
@@ -16,6 +16,19 @@ const CommentWriter = ({postId, commentId}) => {
     const [videoShow, setVideoShow] = useState(false)
     const [imgShow, setImgShow] = useState(false)
 
+    const falseSetter = () => {
+        setText('')
+        setVideo('')
+        setLink('')
+        setYoutube('')
+        setImg([])
+        setYoutubeShow(false)
+        setImgShow(false)
+        setLinkShow(false)
+        setVideo(false)
+        setReloading2(true)
+    }
+
     const createComment = (e) => {
         e.preventDefault()
         const comment = {text, video, link, date: Date.now(), poster: user.id, post: postId, youtube, comments: commentId}
@@ -26,21 +39,33 @@ const CommentWriter = ({postId, commentId}) => {
                     for(let i = 0; i < img.length; i++){
                         axios.post(`${import.meta.env.VITE_URI}/image/create`, {image: img[i], comment: post.id}, 
                         {headers: {'Content-Type': 'application/json'}, withCredentials: true})
+                        falseSetter
+                        setReloading2(true)
+                        return post
                     }
+                    setReloading2(true)
+                    falseSetter()
                 } else{
+                    falseSetter()
+                    setReloading2(true)
                     return post
                 }
+                setReloading2(true)
+                falseSetter()
                 return post
             })
+            setReloading2(true)
+            falseSetter()
+            return
     }
 
     return (
         <>
             <form className='comment-form' onSubmit={createComment}>
-                <textarea placeholder='Write something' rows='8' onChange={(e) => setText(e.target.value)}></textarea>
-                <input type='text' placeholder='link' className={`post-input ${linkShow ? '' : 'hidden'}`} onChange={(e) => setLink(e.target.value)}/>
-                <input type='text' placeholder='video link' className={`post-input ${videoShow ? '' : 'hidden'}`} onChange={(e) => setVideo(e.target.value)}/> 
-                <input type='text' placeholder='Embed youtube Video' className={`post-input ${youtubeShow ? '' : 'hidden'}`} onChange={(e) => setYoutube(e.target.value)}/> 
+                <textarea placeholder='Write something' rows='8' onChange={(e) => setText(e.target.value)} value={text}></textarea>
+                <input type='text' placeholder='link' className={`post-input ${linkShow ? '' : 'hidden'}`} onChange={(e) => setLink(e.target.value)} value={link}/>
+                <input type='text' placeholder='video link' className={`post-input ${videoShow ? '' : 'hidden'}`} onChange={(e) => setVideo(e.target.value)} value={video}/> 
+                <input type='text' placeholder='Embed youtube Video' className={`post-input ${youtubeShow ? '' : 'hidden'}`} onChange={(e) => setYoutube(e.target.value)} value={youtube}/> 
                 <PostImg setImage={setImg} imgBox={imgShow}/>
                 <button className='post-btn'>Comment</button>
             </form>

@@ -4,18 +4,16 @@ import { useNavigate } from 'react-router-dom';
 import AppContext from '../../../context/AppContext';
 import LinkPreview from '../Misc/LinkPreview';
 
-const Comments = ({postId, commentId}) => {
+const Comments = ({postId, commentId, reloading2, setReloading2}) => {
     const navigate = useNavigate()
     const {user} = useContext(AppContext)
     const [comments, setComments] = useState([])
-    const [loading, setLoading] = useState(true)
-    const [reloading, setReloading] = useState(false)
 
     const likePost = (post) => {
         try{
             const like = {post: null, comment: post, liker: user.id,}
-            axios.post(`${import.meta.env.VITE_URI}/likes/likepost`, like, {headers: {'Content-Type': 'application/json'}, withCredentials: true})
-            setReloading(true)
+            axios.post(`${import.meta.env.VITE_URI}/likes/likecomment`, like, {headers: {'Content-Type': 'application/json'}, withCredentials: true})
+            setReloading2(true)
         } catch(err){
             console.log(err)
         }
@@ -26,8 +24,7 @@ const Comments = ({postId, commentId}) => {
             axios.get(`${import.meta.env.VITE_URI}/comment/${postId}/allcomments`, {headers: {'Content-Type': 'application/json'}})
           .then((res) => {
             setComments(res.data)
-            setLoading(false)
-            setReloading(false)
+            setReloading2(false)
           })
           .catch((err) => {
             console.log(err)
@@ -36,20 +33,19 @@ const Comments = ({postId, commentId}) => {
             axios.get(`${import.meta.env.VITE_URI}/comment/${commentId}/allcommentscomments`, {headers: {'Content-Type': 'application/json'}})
           .then((res) => {
             setComments(res.data)
-            setLoading(false)
-            setReloading(false)
+            setReloading2(false)
           })
           .catch((err) => {
             console.log(err)
           })
         }
 
-    }, [postId, commentId, reloading])
+    }, [reloading2, postId, commentId, setReloading2])
 
     return (
         <>
             <h1 className='comment-title'>Comments</h1>
-            { loading && comments.length === 0 ? <p>Loading the comments...</p> : comments.length === 0 ? <p>There are no comments right now</p>:
+            { reloading2 && comments.length === 0 ? <p>Loading the comments...</p> : comments.length === 0 ? <p>There are no comments right now</p>:
                 comments.map((post, key) => {
                     return(
                     <div className='feed-post' key={key}>

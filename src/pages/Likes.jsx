@@ -32,7 +32,7 @@ const Likes = () => {
             .catch((err) => {
                 console.log(err)
             })
-    },[user.id, reloading])
+    },[reloading, user.id])
 
     return (
         <section className='home-page'>

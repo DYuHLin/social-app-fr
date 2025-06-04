@@ -14,7 +14,7 @@ const UserComments = ({id}) => {
     const likePost = (post) => {
         try{
             const like = {post: null, comment: post, liker: user.id,}
-            axios.post(`${import.meta.env.VITE_URI}/likes/likepost`, like, {headers: {'Content-Type': 'application/json'}, withCredentials: true})
+            axios.post(`${import.meta.env.VITE_URI}/likes/likecomment`, like, {headers: {'Content-Type': 'application/json'}, withCredentials: true})
             setReloading(true)
         } catch(err){
             console.log(err)
@@ -31,7 +31,7 @@ const UserComments = ({id}) => {
           .catch((err) => {
             console.log(err)
           })
-    },[id, reloading])
+    },[reloading, id])
     return (
         <>
             <h1>Comments</h1>       
