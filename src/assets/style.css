@@ -208,7 +208,6 @@ button:hover{
 .latest, .most-followed{
     height: 40%;
     width: 100%;
-    border: 1px solid white;
 }
 
 .users{
@@ -219,19 +218,19 @@ button:hover{
     overflow: hidden;
 }
 
-h2{
-    padding: 3px;
-    text-decoration: underline;
-}
-
 .user-card{
     width: 100%;
-    height: 29.6%;
-    border-bottom: 1px solid white;
+    height: 1/3;
+    border: 1px solid white;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 6px;
+}
+
+h2{
+    padding: 3px;
+    text-decoration: underline;
 }
 
 .user-info{
@@ -258,10 +257,10 @@ h2{
 }
 
 .profile-img-suggestion{
-    height: 84px;
+    height: 100%;
     width: 84px;
     border-radius: 50%;
-    object-fit: cover;
+    object-fit: contain;
 }
 
 .profile-img-list{
